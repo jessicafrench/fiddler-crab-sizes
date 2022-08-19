@@ -14,6 +14,7 @@ library(tidyverse)
 ```
 
 ```{r}
+#| fig-cap: "this is my caption"
 # In the Quarto doc, create an exploratory (unfinalized) plot of fiddler crab carapace widths observed at the different latitudes
 
 crab_explore <- pie_crab 
@@ -26,4 +27,14 @@ crab_plot <- ggplot(data = crab_explore,
 
 crab_plot
   
+```
+
+```{r}
+
+crab_summary <- pie_crab |> 
+  select(size, site) |> 
+  group_by(site) |> 
+  summarize(mean_carapace_length = round(mean(size), 2), sd_carapace_length = round(sd(size), 2), sample_size = n())
+
+crab_summary
 ```
