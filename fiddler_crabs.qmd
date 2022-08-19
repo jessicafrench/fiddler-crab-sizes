@@ -2,6 +2,10 @@
 title: "fiddler crabs"
 format: html
 editor: visual
+execute: 
+  warning: false
+  message: false
+  echo: false
 ---
 
 ```{r}
@@ -14,9 +18,12 @@ library(tidyverse)
 
 crab_explore <- pie_crab 
 
-ggplot(data = crab_explore,
+crab_plot <- ggplot(data = crab_explore,
        aes(x = size,
            y = latitude)) +
-  geom_point()
+  geom_point() +
+  labs(caption = "this is my caption") 
+
+crab_plot
   
 ```
